@@ -1,0 +1,29 @@
+PODS:
+  - MockingBird (1.0.0):
+    - OHHTTPStubs
+  - OHHTTPStubs (4.2.0):
+    - OHHTTPStubs/Default (= 4.2.0)
+  - OHHTTPStubs/Core (4.2.0)
+  - OHHTTPStubs/Default (4.2.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (4.2.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (4.2.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (4.2.0)
+
+DEPENDENCIES:
+  - MockingBird (from `../`)
+
+EXTERNAL SOURCES:
+  MockingBird:
+    :path: ../
+
+SPEC CHECKSUMS:
+  MockingBird: ab846e9d7c04da5bf0f31ee2b416bda5d95c6dc1
+  OHHTTPStubs: f639130b83fb5f4f022d38f841141b0a6fa77249
+
+COCOAPODS: 0.38.2
