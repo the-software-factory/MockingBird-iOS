@@ -1,5 +1,5 @@
 //
-//  RequestStubbingController.h
+//  MockingBirdRequestStubControlle.h
 //
 //  Created by Giuseppe Bruno on 27/08/15.
 //  Copyright (c) 2015 Vendini, Inc. All rights reserved.
@@ -9,6 +9,6 @@
 
 @interface MockingBirdRequestStubController : NSObject
 
-+ (void)startStubRequestsWithStubResponseIntoFile:(NSString *)fileName;
++ (void)startStubRequestsWithStubResponseIntoFile:(NSString *)fileName withExtension:(NSString *)extension;
 
 @end

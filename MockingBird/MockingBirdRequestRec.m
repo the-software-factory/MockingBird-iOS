@@ -64,7 +64,7 @@ static Boolean stateRecord = NO;
             classes = (__unsafe_unretained Class *)malloc(sizeof(Class) * numClasses);
             numClasses = objc_getClassList(classes, numClasses);
             for (int i = 0; i < numClasses; i++) {
-                if(class_conformsToProtocol(classes[i], @protocol(NSURLConnectionDataDelegate))) {
+                if(class_conformsToProtocol(classes[i], @protocol(NSURLConnectionDataDelegate)) || class_conformsToProtocol(classes[i], @protocol(NSURLConnectionDelegate))) {
 
                     unsigned int methodCount = 0;
                     Method *methods = class_copyMethodList(classes[i], &methodCount);
@@ -92,6 +92,7 @@ static Boolean stateRecord = NO;
 
                         Class class =  classes[i];
 
+                        //Added this method to improve the readibility of the code
                         SEL selectorReturnCaseNumberFromConnectionAndArray = @selector(returnCaseNumberFromConnection:andArray:);
                         Method methodReturnCaseNumberFromConnectionAndArray = class_getInstanceMethod([self class], selectorReturnCaseNumberFromConnectionAndArray);
                         class_addMethod(class,
@@ -205,7 +206,7 @@ static Boolean stateRecord = NO;
         NSInteger caseNumberOfThisConnection = [self returnCaseNumberFromConnection:connection andArray:arrayConnectionData];
 
         NSFileManager *fileManager = [NSFileManager defaultManager];
-        [fileManager createDirectoryAtPath:pathFile withIntermediateDirectories:YES attributes:nil error:&error];
+        [fileManager createDirectoryAtPath:[pathFile stringByReplacingOccurrencesOfString:[pathFile lastPathComponent] withString:@""] withIntermediateDirectories:YES attributes:nil error:&error];
 
         // There is only a response header to sent
         if (caseNumberOfThisConnection == CASE_1 || caseNumberOfThisConnection == CASE_3) {

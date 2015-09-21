@@ -1,5 +1,5 @@
 //
-//  RequestStubbingController.m
+//  MockingBirdRequestStubController.m
 //
 //  Created by Giuseppe Bruno on 27/08/15.
 //  Copyright (c) 2015 Vendini, Inc. All rights reserved.
@@ -12,10 +12,10 @@
 
 @implementation MockingBirdRequestStubController
 
-+ (void)startStubRequestsWithStubResponseIntoFile:(NSString *)fileName
++ (void)startStubRequestsWithStubResponseIntoFile:(NSString *)fileName withExtension:(NSString *)extension
 {
     NSError *error;
-    NSString *pathJSONPairing = [[NSBundle bundleForClass:[self class]] pathForResource:[NSString stringWithFormat:@"%@", fileName] ofType:@"json"];
+    NSString *pathJSONPairing = [[NSBundle bundleForClass:[self class]] pathForResource:[NSString stringWithFormat:@"%@", fileName] ofType:extension];
     NSString *contentJSONPairing = [NSString stringWithContentsOfFile:pathJSONPairing encoding:NSDataReadingMapped error:&error];
 
     MockingBirdRequestFactory *request = [[MockingBirdRequestFactory alloc] init];

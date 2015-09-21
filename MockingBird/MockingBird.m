@@ -1,5 +1,5 @@
 //
-//  RequestRecordingStubbing.m
+//  MockingBird.m
 //
 //  Created by Giuseppe Bruno on 16/09/15.
 //  Copyright (c) 2015 Vendini, Inc. All rights reserved.
@@ -19,8 +19,8 @@
     [MockingBirdRequestRec setRecordingOn:record];
 }
 
-+ (void)startStubRequestsWithStubResponseIntoFile:(NSString *)fileName {
-    [MockingBirdRequestStubController startStubRequestsWithStubResponseIntoFile:fileName];
++ (void)startStubRequestsWithStubResponseIntoFile:(NSString *)fileName withExtension:(NSString *)extension{
+    [MockingBirdRequestStubController startStubRequestsWithStubResponseIntoFile:fileName withExtension:extension];
 }
 
 @end
